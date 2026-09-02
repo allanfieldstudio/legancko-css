@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#fbf8f1" />
+    <title>Legancko: Asystent Podróży</title>
+
+    <!-- v3.30.5 ANDROID BOTTOM SAFE AREA -->
+    <script>
+      (function(){
+        var root=document.documentElement;
+        var lastSmallInset=0;
+        function envBottom(){
+          if(!document.body) return 0;
+          var p=document.getElementById('leganckie-safe-probe');
+          if(!p){
+            p=document.createElement('div');
+            p.id='leganckie-safe-probe';
+            p.setAttribute('aria-hidden','true');
+            p.style.cssText='position:fixed;left:-9999px;bottom:0;width:1px;height:0;padding-bottom:env(safe-area-inset-bottom,0px);pointer-events:none;visibility:hidden';
+            document.body.appendChild(p);
+          }
+          var v=parseFloat(getComputedStyle(p).paddingBottom)||0;
+          return isFinite(v)?v:0;
+        }
+        function updateBottomInset(){
+          var vv=window.visualViewport;
+          var visual=0;
+          if(vv){
+            var d=Math.max(0,window.innerHeight-(vv.height+vv.offsetTop));
+            // Navigation/system bars are small. A larger delta is normally the soft keyboard.
+            if(d>0 && d<=96) visual=d;
+          }
+          var env=envBottom();
+          var detected=Math.max(env,visual);
+          if(detected>0 && detected<=96) lastSmallInset=detected;
+          // Android WebView does not expose safe-area-inset-bottom consistently.
+          // Keep a small navigation guard only when native Android is detected.
+          var android=/Android/i.test(navigator.userAgent||'');
+          var fallback=android ? 24 : 0;
+          var value=Math.max(detected,lastSmallInset,fallback);
+          // Avoid accidental keyboard-sized values.
+          value=Math.min(value,72);
+          root.style.setProperty('--leganckie-system-bottom',value.toFixed(1)+'px');
+        }
+        function schedule(){ requestAnimationFrame(updateBottomInset); }
+        document.addEventListener('DOMContentLoaded',function(){updateBottomInset();setTimeout(updateBottomInset,120);setTimeout(updateBottomInset,600);},{once:true});
+        window.addEventListener('load',updateBottomInset,{once:true});
+        window.addEventListener('resize',schedule,{passive:true});
+        window.addEventListener('orientationchange',function(){setTimeout(updateBottomInset,120);setTimeout(updateBottomInset,500);},{passive:true});
+        window.addEventListener('pageshow',schedule,{passive:true});
+        if(window.visualViewport){
+          window.visualViewport.addEventListener('resize',schedule,{passive:true});
+          window.visualViewport.addEventListener('scroll',schedule,{passive:true});
+        }
+      })();
+    </script>
+    <script src="./modules/core/module-registry.js"></script>
+    <script src="./modules/core/index.js"></script>
+    <script src="./modules/core-navigation/index.js"></script>
+    <script src="./modules/core-permissions/index.js"></script>
+    <script src="./modules/core-ui/index.js"></script>
+    <script src="./modules/core-favorites/index.js"></script>
+    <script src="./modules/core-speech/index.js"></script>
+    <script src="./modules/core-location/index.js"></script>
+    <script src="./modules/feature-gps/location-provider.js"></script>
+    <script src="./modules/feature-gps/index.js"></script>
+    <script src="./modules/core/native-services.js"></script>
+    <script src="./modules/feature-rozmowki/index.js"></script>
+    <script src="./modules/feature-translator/index.js"></script>
+    <script src="./modules/feature-conversation/index.js"></script>
+    <script src="./modules/feature-assistant/index.js"></script>
+    <script src="./modules/feature-nearby-attractions/index.js"></script>
+    <script src="./modules/feature-emergency-card/index.js"></script>
+    <script src="./modules/feature-emergency-card/location-enhancement.js"></script>
+    <script src="./modules/feature-first-aid/index.js"></script>
+    <script src="./modules/feature-basic-info/index.js"></script>
+    <script src="./modules/feature-savoir-vivre/index.js"></script>
+    <script src="./modules/feature-currency/index.js"></script>
+    <script src="./modules/feature-units/index.js"></script>
+    <script src="./assets/numbers-premium-v323.js"></script>
+    <script src="./assets/packer-v324.js"></script>
+    <script src="./assets/crisis-v325.js"></script>
+    <script src="./assets/gate-v3262.js"></script>
+    <script src="./assets/medical-pain-v3271.js"></script>
+    <script src="./assets/fairprice-v3283.js"></script>
+    <script src="./modules/feature-food/index.js"></script>
+    <script src="./modules/feature-saved/index.js"></script>
+    <script src="./modules/app/index.js"></script>
+    <script src="./assets/language-core-v1.js"></script>
+    <script src="./assets/travel-packs-demo-v336.js"></script>
+    <script src="./assets/cuisine-local-assets-v1.js"></script>
+    <script src="./assets/language-training-v329.js"></script>
+    <script src="./assets/weather-v330.js"></script>
+    <script src="./assets/drone-v331.js"></script>
+    <script src="./assets/photo-top-v334.js"></script>
+    <script src="./assets/idioms-v335.js"></script>
+    <script type="module" crossorigin src="./assets/index-ui-v310.js"></script>
+    <script src="./assets/cuisine-premium-v338.js"></script>
+    <script src="./assets/v339-fixes.js"></script>
+    <script src="./assets/v340-upgrade.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-ui-v310.css">
+    <link rel="stylesheet" href="./assets/savoir-vivre-v322.css">
+    <link rel="stylesheet" href="./assets/numbers-premium-v323.css">
+    <link rel="stylesheet" href="./assets/packer-v324.css">
+    <link rel="stylesheet" href="./assets/crisis-v325.css">
+    <link rel="stylesheet" href="./assets/gate-v3262.css">
+    <link rel="stylesheet" href="./assets/medical-pain-v3271.css">
+    <link rel="stylesheet" href="./assets/fairprice-v3282.css">
+    <link rel="stylesheet" href="./assets/language-training-v329.css">
+    <link rel="stylesheet" href="./assets/weather-v330.css">
+    <link rel="stylesheet" href="./assets/drone-v331.css">
+    <link rel="stylesheet" href="./assets/photo-top-v334.css">
+    <link rel="stylesheet" href="./assets/idioms-v335.css">
+    <link rel="stylesheet" href="./assets/travel-packs-demo-v336.css">
+    <link rel="stylesheet" href="./assets/cuisine-premium-v338.css">
+    <link rel="stylesheet" href="./assets/v339-fixes.css">
+    <link rel="stylesheet" href="./assets/v340-upgrade.css">
+
+    <style id="leganckie-android-safearea-v3305">
+      /* v3.30.5 — global Android bottom safe area.
+         Full-screen tools must stop ABOVE the Android navigation/gesture bar. */
+      :root{
+        --leganckie-system-bottom:0px;
+        --leganckie-safe-bottom:max(env(safe-area-inset-bottom,0px),var(--leganckie-system-bottom,0px));
+      }
+
+      /* Full-screen/new tool backdrops. Longhand bottom intentionally overrides inset:0. */
+      .wx-backdrop,
+      .gate-backdrop,
+      #leganckie-fairprice-backdrop.fp-backdrop,
+      #leganckie-drone-backdrop,
+      .pk-backdrop,
+      .mp-overlay,
+      .lt-backdrop,
+      .sv-backdrop,
+      .travel-modal-backdrop,
+      .detail-backdrop,
+      .scanner-backdrop,
+      .teacher-backdrop,
+      .conversation-backdrop{
+        bottom:var(--leganckie-safe-bottom)!important;
+      }
+
+      /* Nested full-screen sheets/dialogs use the same protected lower edge. */
+      .wx-sheet,
+      .fp-show-overlay{
+        bottom:var(--leganckie-safe-bottom)!important;
+      }
+
+      /* Recent full-height modules fill the SAFE backdrop rather than 100dvh. */
+      .wx-modal,
+      .gate-modal,
+      .fp-modal,
+      .drone-modal,
+      .pk-modal,
+      .mp-shell,
+      .lt-modal{
+        height:100%!important;
+        max-height:100%!important;
+      }
+
+      /* Scrollable content gets a small breathing space above the protected edge. */
+      .wx-render,
+      .gate-render,
+      .fp-render,
+      .drone-render,
+      .pk-render,
+      .mp-render,
+      .lt-render{
+        scroll-padding-bottom:24px!important;
+      }
+
+      /* Toasts/actions that are fixed to the physical viewport must also clear Android UI. */
+      .mp-toast{
+        bottom:calc(96px + var(--leganckie-safe-bottom))!important;
+      }
+
+      /* Generic bottom sheets: never exceed the safe backdrop height. */
+      .scanner-sheet,
+      .teacher-sheet,
+      .conversation-sheet,
+      .travel-modal{
+        max-height:100%!important;
+      }
+    </style>
+    <style id="leganckie-ui-scroll-hotfix-v33010">
+      /* v3.30.10 — real-device bottom spacing + long phrase detail scroll.
+         Keep Android system-bar protection, but remove doubled internal bottom padding
+         in Drone / First Aid and reserve the fixed in-app bottom nav for phrase details. */
+      @media (max-width:900px){
+        /* Long phrase details live below the sticky 72px app header and above the
+           47px in-app bottom navigation + Android system inset. */
+        .detail-backdrop{
+          top:72px!important;
+          right:0!important;
+          left:0!important;
+          bottom:calc(47px + var(--leganckie-safe-bottom))!important;
+          padding:0!important;
+          place-items:end stretch!important;
+        }
+        .phrase-detail,
+        .phrase-detail:has(.slot-editor){
+          min-height:0!important;
+          max-height:100%!important;
+          height:auto!important;
+          margin:0!important;
+          overflow-y:auto!important;
+          overscroll-behavior:contain!important;
+          scroll-padding-top:10px!important;
+          scroll-padding-bottom:12px!important;
+          padding-bottom:30px!important;
+        }
+        .phrase-detail .detail-actions,
+        .phrase-detail:has(.slot-editor) .detail-actions{
+          padding-bottom:6px!important;
+          margin-bottom:0!important;
+        }
+
+        /* Safe backdrop already clears Android UI. Do not add a second large
+           internal reserve at the end of these two screens. */
+        .drone-render{padding-bottom:6px!important;}
+        .drone-screen{padding-bottom:8px!important;}
+        .travel-modal[aria-label="Pierwsza pomoc"]{padding-bottom:8px!important;}
+        .travel-modal[aria-label="Pierwsza pomoc"] .tool-note{margin-bottom:0!important;}
+      }
+    </style>
+    <script id="leganckie-phrase-detail-scroll-v33010">
+      (function(){
+        function resetPhraseDetail(node){
+          if(!node || node.nodeType!==1) return;
+          var detail=node.matches && node.matches('.phrase-detail') ? node :
+            (node.querySelector ? node.querySelector('.phrase-detail') : null);
+          if(!detail || detail.dataset.leganckieInitialScroll==='1') return;
+          detail.dataset.leganckieInitialScroll='1';
+          var reset=function(){ detail.scrollTop=0; };
+          reset();
+          requestAnimationFrame(reset);
+          setTimeout(reset,50);
+          setTimeout(reset,120);
+        }
+        function start(){
+          if(!document.body) return;
+          document.querySelectorAll('.phrase-detail').forEach(resetPhraseDetail);
+          new MutationObserver(function(records){
+            records.forEach(function(r){
+              r.addedNodes && r.addedNodes.forEach(resetPhraseDetail);
+            });
+          }).observe(document.body,{childList:true,subtree:true});
+        }
+        if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',start,{once:true});
+        else start();
+      })();
+    </script>
+  
+    <script id="leganckie-startup-guard-v3391">
+    (function(){
+      window.__LEGANCKIE_STARTUP_ERRORS__=[];
+      function remember(kind,value){
+        try{window.__LEGANCKIE_STARTUP_ERRORS__.push(kind+': '+String(value&&value.message||value||'unknown'));}catch(_){}
+      }
+      window.addEventListener('error',function(e){remember('error',e.error||e.message);});
+      window.addEventListener('unhandledrejection',function(e){remember('promise',e.reason);});
+      window.setTimeout(function(){
+        try{
+          var root=document.getElementById('root');
+          if(root && !root.firstElementChild){
+            var errors=window.__LEGANCKIE_STARTUP_ERRORS__||[];
+            root.innerHTML='<div style="min-height:100vh;background:#071a35;color:white;padding:28px;font:16px/1.5 system-ui"><h2 style="margin-top:48px">Nie udało się uruchomić interfejsu</h2><p>Diagnostyka testowej wersji:</p><pre style="white-space:pre-wrap;background:#0d2b52;padding:16px;border-radius:14px">'+(errors.length?errors.join('\n'):'Brak zarejestrowanego błędu JavaScript')+'</pre></div>';
+          }
+        }catch(_){}
+      },3500);
+    })();
+    </script>
+    <link rel="stylesheet" href="./assets/easter-coupon-v341.css" />
+    <link rel="stylesheet" href="./assets/easter-pack-v342.css" />
+</head>
+  <body>
+    <div id="root"></div>
+      <script src="./assets/easter-coupon-v341.js"></script>
+      <script src="./assets/easter-pack-v342.js"></script>
+  </body>
+</html>
