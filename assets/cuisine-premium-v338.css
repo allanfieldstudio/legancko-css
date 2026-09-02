@@ -1,0 +1,20 @@
+/* Leganckie Rozmówki v3.38 — premium cuisine accordion */
+.dish-grid article{position:relative}
+.dish-grid .cuisine-more-button{width:100%;border:1px solid rgba(88,184,255,.26);background:linear-gradient(135deg,rgba(25,91,153,.22),rgba(69,49,152,.18));color:#bfe2fb;border-radius:12px;padding:11px 13px;margin-top:3px;display:flex;align-items:center;justify-content:space-between;gap:10px;font:900 11px/1.2 inherit;letter-spacing:.01em;cursor:pointer;text-align:left}
+.dish-grid .cuisine-more-button:active{transform:translateY(1px)}
+.dish-grid .cuisine-more-arrow{font-size:16px;line-height:1;transition:transform .18s ease}
+.dish-grid .cuisine-more-button[aria-expanded="true"] .cuisine-more-arrow{transform:rotate(180deg)}
+.dish-grid .cuisine-details{margin-top:10px;border-top:1px solid rgba(255,255,255,.10);padding-top:9px;display:grid;gap:8px;animation:cuisineReveal .18s ease-out}
+.dish-grid .cuisine-detail-section{border:1px solid rgba(255,255,255,.09);background:linear-gradient(145deg,rgba(7,31,63,.92),rgba(13,29,70,.84));border-radius:12px;padding:11px 12px;box-shadow:inset 0 1px 0 rgba(255,255,255,.035)}
+.dish-grid .cuisine-detail-section h4{margin:0 0 6px;color:#fff;font-size:12px;line-height:1.25;font-weight:700;display:flex;align-items:center;gap:7px}
+.dish-grid .cuisine-detail-section p{margin:0!important;color:#d8e2ee!important;font-size:11.2px!important;line-height:1.62!important}
+.dish-grid .cuisine-detail-section.cuisine-warning{background:linear-gradient(145deg,rgba(86,40,22,.45),rgba(77,28,40,.35));border-color:rgba(255,143,104,.18)}
+.dish-grid .cuisine-photo-badge{position:absolute;right:9px;top:9px;z-index:2;background:rgba(4,18,40,.78);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:5px 8px;color:#eaf5ff;font-size:8px;font-weight:900;letter-spacing:.04em}
+.dish-grid article>img{display:block}
+.dish-grid .cuisine-photo-credit{display:block!important;margin-top:8px;font-size:11px!important;opacity:.58;color:#64748b!important}
+@keyframes cuisineReveal{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+@media(max-width:760px){
+	.dish-grid .cuisine-more-button{min-height:43px;font-size:12px; color: #eeeeee;}.dish-grid .cuisine-detail-section{padding:12px 13px}.dish-grid .cuisine-detail-section h4{font-size:14px}.dish-grid .cuisine-detail-section p{font-size:12px!important}}
+/* v3.39.2 — package countries use explicit local photo assets only. */
+.dish-image-placeholder.cuisine-local-placeholder{background:radial-gradient(circle at 50% 35%,rgba(74,179,211,.10),transparent 28%),linear-gradient(145deg,#fff9ef,#f7f1ed)!important}
+.dish-image-placeholder.cuisine-local-placeholder small{max-width:230px;text-align:center;color:#b9685f!important;font-weight:850!important;line-height:1.45!important}
