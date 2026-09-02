@@ -1,0 +1,44 @@
+/* Legancko w podróży v3.25.0 — crisis conversation mode */
+.travel-modal[aria-label="Symulacja rozmowy"] .crisis-top-v325{display:grid;gap:14px;margin-bottom:14px}
+.travel-modal[aria-label="Symulacja rozmowy"] .crisis-top-v325>.tool-lead{margin:0}
+.crisis-switch-v325{display:grid;grid-template-columns:1fr 1fr;border:1px solid #e7e0d8;border-radius:17px;background:#fff;overflow:hidden;box-shadow:0 8px 22px rgba(16,35,63,.07)}
+.crisis-switch-v325 button{min-height:55px;border:0;background:transparent;color:#6d7788;font-weight:850;cursor:pointer;padding:0 14px;font-size:12px}
+.crisis-switch-v325 button.active:first-child{background:linear-gradient(135deg,#eef3fb,#fff);color:#17375d;box-shadow:inset 0 0 0 1px rgba(77,127,199,.22)}
+.crisis-switch-v325 button.active:last-child{background:linear-gradient(120deg,#ff9a2f 0%,#f15c45 48%,#df3347 100%);color:#fff;box-shadow:0 10px 24px rgba(229,75,66,.26),inset 0 1px 0 rgba(255,255,255,.35)}
+.crisis-root-v325{padding-bottom:calc(18px + env(safe-area-inset-bottom,0px))}
+.crisis-mode-note-v325{border:1px solid rgba(238,111,95,.28);background:linear-gradient(135deg,rgba(255,243,232,.92),rgba(255,249,246,.96));border-radius:15px;padding:12px 14px;margin-bottom:13px;display:grid;gap:4px}
+.crisis-mode-note-v325 span{font-size:9px;letter-spacing:.11em;font-weight:900;color:#dd584a}
+.crisis-mode-note-v325 p{margin:0;color:#6d7788;font-size:10px;line-height:1.45}
+.crisis-difficulty-v325{margin-bottom:12px}
+.crisis-difficulty-v325 button.active{background:#fff3f1!important;color:#d9483d!important;border-color:#ee6f5f!important;box-shadow:0 5px 14px rgba(238,111,95,.12)}
+.crisis-random-v325{min-height:43px!important;background:linear-gradient(135deg,#f5f8ff,#fff)!important;border-color:#d9e2f2!important;color:#244b82!important;font-size:10px!important}
+.crisis-tabs-v325{display:flex!important;gap:8px!important;overflow-x:auto!important;overscroll-behavior-inline:contain;scrollbar-width:none;padding:1px 1px 7px!important;margin-bottom:6px!important}
+.crisis-tabs-v325::-webkit-scrollbar{display:none}
+.crisis-tabs-v325 button{flex:0 0 128px!important;min-height:62px!important;white-space:normal!important;text-align:left!important;border-radius:13px!important;padding:9px 10px!important;line-height:1.25!important;font-size:10px!important}
+.crisis-tabs-v325 button.active{background:linear-gradient(145deg,#fff8f6,#fff)!important;border-color:#ef665a!important;color:#17375d!important;box-shadow:inset 0 0 0 1px rgba(239,102,90,.25),0 6px 16px rgba(238,111,95,.10)!important}
+.crisis-prompt-v325{background:linear-gradient(145deg,#edf5ff,#f8fbff)!important;border:1px solid #cfe0f7!important;box-shadow:0 8px 22px rgba(54,95,148,.07)}
+.crisis-task-v325{background:linear-gradient(145deg,#fff7f3,#fffafa)!important;border:1px solid rgba(238,111,95,.42)!important;border-style:solid!important;position:relative;overflow:hidden}
+.crisis-task-v325:after{content:"!";position:absolute;right:14px;top:14px;width:32px;height:32px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(238,111,95,.28);color:#e45e4f;font-weight:900;background:#fff8f5}
+.crisis-answer-v325{border:1px solid rgba(45,155,140,.25);border-radius:14px;padding:16px;margin-top:13px;background:linear-gradient(145deg,#effbf8,#f8fffd)!important;display:grid;gap:6px}
+.crisis-score-v325{grid-template-columns:1fr!important;gap:7px!important;border:1px solid rgba(45,155,140,.22)}
+.crisis-score-v325.partial{background:#fff6ed!important;border-color:rgba(220,169,77,.34)}
+.crisis-score-v325>strong{grid-row:auto!important;font-size:17px!important}
+.crisis-score-v325.partial>strong{color:#9a6818!important}
+.crisis-missing-v325{color:#b04b3e!important;font-weight:800}
+.crisis-metrics-v325{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:3px}
+.crisis-metrics-v325 span{background:rgba(255,255,255,.72);border:1px solid rgba(16,35,63,.08);border-radius:10px;padding:8px 9px;color:#6c7787;font-size:8px}
+.crisis-metrics-v325 b{display:block;color:#17375d;font-size:13px;margin-bottom:1px}
+.crisis-controls-v325 .tool-primary{background:linear-gradient(135deg,#f17354,#e64247)!important;box-shadow:0 9px 20px rgba(229,66,71,.20)}
+.crisis-next-v325{background:linear-gradient(135deg,#fff6e8,#fffaf4)!important;border-color:rgba(220,169,77,.45)!important;color:#845b14!important}
+.crisis-complete-v325{padding-bottom:calc(18px + env(safe-area-inset-bottom,0px))}
+.crisis-final-grid-v325{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;width:100%;margin:17px 0 9px}
+.crisis-final-grid-v325>div{border:1px solid #e4e7ef;background:#fff;border-radius:13px;padding:11px 7px;display:grid;gap:2px;justify-items:center}
+.crisis-final-grid-v325 span{font-size:20px}.crisis-final-grid-v325 small{font-size:8px;color:#6c7787;font-weight:800}.crisis-final-grid-v325 strong{font-size:17px;color:#17375d}
+.crisis-complete-v325 .tool-secondary{margin-top:8px}
+@media (max-width:620px){
+  .travel-modal[aria-label="Symulacja rozmowy"] .crisis-top-v325{gap:11px;margin-bottom:11px}
+  .crisis-switch-v325 button{min-height:51px;font-size:12px;padding:0 8px}
+  .crisis-tabs-v325 button{flex-basis:119px!important;min-height:59px!important}
+  .crisis-mode-note-v325 p{font-size:9px}
+  .crisis-final-grid-v325{gap:6px}
+}

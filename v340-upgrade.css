@@ -1,0 +1,66 @@
+
+/* Legancko w podróży v3.40 — point fixes only */
+.brand>span:last-child{display:grid!important;align-content:center!important;line-height:1.05!important}
+.brand>span:last-child>strong{font-size:clamp(20px,5.4vw,29px)!important;font-weight:700!important;letter-spacing:-.035em!important;white-space:nowrap!important;overflow:visible!important;text-overflow:clip!important}
+.brand>span:last-child>small{display:block!important;margin-top:4px!important;font-size:clamp(12px,3.5vw,16px)!important;font-weight:450!important;letter-spacing:.015em!important;text-transform:none!important;color:rgba(255,255,255,.7)!important;white-space:nowrap!important}
+/* Receipt OCR is intentionally out for now. */
+.receipt-photo,.receipt-image,.receipt-items,.detected-total{display:none!important}
+/* GPS cosmetic layer — no GPS mechanics are changed. */
+.gps-position-body>.tool-lead{display:none!important}
+.gps-position-body{position:relative;isolation:isolate}
+.gps-position-body .tracker-position-panel{position:relative!important;overflow:hidden!important;padding:16px!important;background:linear-gradient(150deg,#062b52 0%,#073866 48%,#172a67 100%)!important;border:1px solid rgba(103,183,255,.32)!important}
+.gps-position-body .tracker-mode{display:none!important}
+.gps-speed-hero-v340{display:grid;place-items:center;gap:7px;padding:22px 12px 18px;margin-bottom:13px;border-radius:22px;background:radial-gradient(circle at 50% 28%,rgba(22,176,255,.16),transparent 48%),linear-gradient(145deg,rgba(3,26,55,.88),rgba(7,47,91,.7));border:1px solid rgba(77,187,255,.28);box-shadow:inset 0 0 42px rgba(0,151,255,.06)}
+.gps-speed-hero-v340>small{font-size:11px;font-weight:900;letter-spacing:.19em;color:#60e8e4}
+.gps-speed-value-v340{display:grid;place-items:center;line-height:1}
+.gps-speed-value-v340 strong{font-size:clamp(76px,24vw,126px);font-weight:950;letter-spacing:-.07em;color:#fff;text-shadow:0 4px 24px rgba(0,0,0,.22)}
+.gps-speed-value-v340 span{font-size:24px;font-weight:650;color:rgba(255,255,255,.72);margin-top:2px}
+.gps-speed-mode-v340{min-height:48px;display:flex;align-items:center;justify-content:center;gap:10px;color:#8feaff;font-size:15px;font-weight:800;text-align:center}
+.gps-speed-mode-v340 i{width:33px;height:33px;display:grid;place-items:center;color:#63d9ff;flex:0 0 auto}
+.gps-speed-mode-v340 i svg{width:30px;height:30px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.gps-speed-mode-v340 i img{width:27px;height:40px;object-fit:contain;filter:brightness(0) invert(1) drop-shadow(0 0 8px #32d6ff)}
+.gps-speed-mode-v340 b{display:block;color:#45e7ff;font-size:18px;margin-top:2px}
+.gps-position-body .tracker-readings{display:block!important;margin:0!important}
+.gps-position-body .tracker-readings>.gps-original-speed-v340{display:none!important}
+.gps-position-body .tracker-readings>.gps-altitude-card-v340,
+.gps-position-body .tracker-coordinates,
+.gps-position-body .gps-place-card{position:relative!important;display:grid!important;grid-template-columns:62px 1fr!important;grid-template-rows:auto auto!important;column-gap:14px!important;align-items:center!important;place-items:initial!important;min-height:104px!important;margin:12px 0 0!important;padding:16px 18px!important;border:1px solid rgba(88,166,236,.26)!important;border-radius:21px!important;background:linear-gradient(135deg,rgba(4,35,68,.94),rgba(4,48,91,.84))!important;box-shadow:inset 0 0 28px rgba(39,137,255,.035)!important}
+.gps-card-icon-v340{grid-row:1/3;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:rgba(13,55,104,.78);border:1px solid rgba(78,157,242,.28);color:#d9ebff}
+.gps-card-icon-v340 svg,.gps-place-pin-v340 svg{width:36px;height:36px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.gps-altitude-card-v340 small,.tracker-coordinates small,.gps-place-card>small{grid-column:2!important;color:rgba(211,225,247,.68)!important;font-size:10px!important;font-weight:850!important;letter-spacing:.14em!important}
+.gps-altitude-card-v340 strong{grid-column:2!important;font-size:34px!important;letter-spacing:-.035em!important;color:#fff!important;margin:0!important}
+.gps-altitude-card-v340 span{position:absolute!important;left:94px!important;bottom:13px!important;font-size:10px!important;color:rgba(255,255,255,.64)!important}
+.gps-position-body .tracker-coordinates strong{grid-column:2!important;font-size:24px!important;line-height:1.15!important;color:#fff!important;letter-spacing:-.02em!important;overflow-wrap:anywhere}
+.gps-position-body .tracker-meta{display:none!important}
+.gps-position-body .gps-place-card>div{grid-column:1/3!important;display:grid!important;grid-template-columns:62px 1fr!important;gap:14px!important;align-items:center!important;margin-top:-20px!important}
+.gps-position-body .gps-place-card>small{z-index:2}
+.gps-position-body .gps-place-pin{width:58px!important;height:58px!important;display:grid!important;place-items:center!important;border-radius:50%!important;background:rgba(13,55,104,.78)!important;border:1px solid rgba(78,157,242,.28)!important;color:#d9ebff!important;font-size:0!important}
+.gps-position-body .gps-place-card strong{font-size:23px!important}
+
+/* Speed tier 600-799 km/h: dark amber/orange escalation before red alert. */
+.gps-orange-alert-v343 .tracker-position-panel{background:radial-gradient(circle at 50% 12%,rgba(255,145,36,.22),transparent 43%),linear-gradient(145deg,#4a260b,#34200c 48%,#17101a)!important;border-color:rgba(255,163,65,.42)!important}
+.gps-orange-alert-v343 .gps-speed-hero-v340{background:radial-gradient(circle at 50% 26%,rgba(255,145,36,.18),transparent 47%),linear-gradient(145deg,rgba(67,31,8,.93),rgba(63,36,12,.82))!important;border-color:rgba(255,170,78,.42)!important;box-shadow:0 0 34px rgba(255,127,31,.09),inset 0 0 44px rgba(255,137,34,.07)!important}
+.gps-orange-alert-v343 .gps-speed-mode-v340,.gps-orange-alert-v343 .gps-speed-mode-v340 i{color:#ffb15e!important}
+.gps-red-alert-v340 .tracker-position-panel{background:radial-gradient(circle at 50% 12%,rgba(255,60,58,.25),transparent 42%),linear-gradient(145deg,#40121f,#250b1b 48%,#150b20)!important;border-color:rgba(255,83,83,.48)!important}
+.gps-red-alert-v340 .gps-speed-hero-v340{border-color:rgba(255,86,86,.45);box-shadow:0 0 38px rgba(255,30,55,.1),inset 0 0 45px rgba(255,32,45,.08)}
+.gps-red-alert-v340 .gps-speed-mode-v340,.gps-red-alert-v340 .gps-speed-mode-v340 i{color:#ff7c7c!important}
+/* WARP 900+: keep the exact pre-WARP geometry; only skin the speed hero. */
+.gps-warp-v340{padding-top:0!important}
+.gps-warp-v340 .tracker-position-panel{background:linear-gradient(150deg,#062b52 0%,#073866 48%,#172a67 100%)!important;border-color:rgba(103,183,255,.32)!important;box-shadow:none!important;backdrop-filter:none!important}
+.gps-warp-v340 .gps-speed-hero-v340{position:relative;overflow:hidden!important;background-image:linear-gradient(180deg,rgba(0,8,27,.32),rgba(0,10,35,.54)),url('./warp-user-v340.webp')!important;background-size:cover!important;background-position:center center!important;background-repeat:no-repeat!important;border-color:rgba(31,187,255,.58)!important;box-shadow:0 0 46px rgba(48,134,255,.16),inset 0 0 46px rgba(0,18,55,.16)!important}
+.gps-warp-v340 .gps-speed-hero-v340:before{content:none!important;display:none!important}
+.gps-warp-v340 .gps-speed-value-v340,.gps-warp-v340 .gps-speed-mode-v340,.gps-warp-v340 .gps-speed-hero-v340>small,.gps-warp-v340 .gps-test-controls-v340,.gps-warp-v340 .gps-test-hint-v340{position:relative;z-index:1}
+.gps-warp-v340 .gps-speed-mode-v340{min-height:48px!important;flex-direction:row!important;gap:10px!important;color:#d7e1f9!important;line-height:1.05}
+.gps-warp-v340 .gps-speed-mode-v340 span{text-align:left}
+.gps-warp-v340 .gps-speed-mode-v340 b{margin-top:1px!important}
+@media(max-width:390px){.gps-position-body .tracker-readings>.gps-altitude-card-v340,.gps-position-body .tracker-coordinates,.gps-position-body .gps-place-card{grid-template-columns:54px 1fr!important;padding:14px!important}.gps-card-icon-v340,.gps-position-body .gps-place-pin{width:50px!important;height:50px!important}.gps-position-body .gps-place-card>small{margin-left:68px!important}.gps-position-body .gps-place-card>div{grid-template-columns:54px 1fr!important}.gps-altitude-card-v340 span{left:82px!important}}
+
+/* SPEED TEST BUILD: manual +/-10 km/h controls. */
+.gps-test-badge-v340{display:inline-grid;place-items:center;margin-left:7px;padding:3px 7px;border-radius:999px;background:#ffcf4a;color:#10233d;font-size:9px;letter-spacing:.08em;vertical-align:1px}
+.gps-test-controls-v340{position:relative;z-index:2;width:min(100%,360px);display:grid;grid-template-columns:1fr 1.15fr 1fr;gap:8px;margin-top:5px}
+.gps-test-controls-v340 button{min-height:50px;border-radius:15px;border:1px solid rgba(112,209,255,.34);background:linear-gradient(145deg,rgba(13,67,121,.96),rgba(12,44,91,.96));color:#fff;font:900 18px/1 inherit;box-shadow:inset 0 1px 0 rgba(255,255,255,.09);touch-action:manipulation}
+.gps-test-controls-v340 button:active{transform:translateY(1px);background:linear-gradient(145deg,rgba(20,91,154,.98),rgba(14,55,108,.98))}
+.gps-test-controls-v340 .gps-test-reset-v340{font-size:13px;color:#8feaff}
+.gps-test-hint-v340{position:relative;z-index:2!important;margin-top:1px!important;color:rgba(222,239,255,.56)!important;font-size:9px!important;letter-spacing:.04em!important}
+.gps-red-alert-v340 .gps-test-controls-v340 button{border-color:rgba(255,123,123,.38);background:linear-gradient(145deg,rgba(111,26,45,.96),rgba(61,14,32,.96))}
+.gps-warp-v340 .gps-test-controls-v340 button{border-color:rgba(82,185,255,.52);background:linear-gradient(145deg,rgba(10,53,112,.92),rgba(12,20,72,.92));box-shadow:0 0 15px rgba(43,146,255,.12),inset 0 1px 0 rgba(255,255,255,.1)}
